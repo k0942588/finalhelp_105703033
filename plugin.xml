@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="org.eclipse.helprcp.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.helprcp.Perspective"
+            name="RCP Perspective"
+            id="org.eclipse.helprcp.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            icon="icons/sample2.gif"
+            class="org.eclipse.helprcp.View"
+            name="Message"
+            id="org.eclipse.helprcp.view">
+      </view>
+      <view
+            allowMultiple="true"
+            icon="icons/sample3.gif"
+            class="org.eclipse.helprcp.NavigationView"
+            name="Mailboxes"
+            id="org.eclipse.helprcp.navigationView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.helprcp.category"
+            name="Mail">
+      </category>
+      <command
+            description="Opens a mailbox"
+            name="Open Mailbox"
+            id="org.eclipse.helprcp.open"
+            categoryId="org.eclipse.helprcp.category">
+      </command>
+      <command
+            description="Open a message dialog"
+            name="Open Message Dialog"
+            id="org.eclipse.helprcp.openMessage"
+            categoryId="org.eclipse.helprcp.category">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.eclipse.helprcp.open"
+            sequence="CTRL+SHIFT+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="org.eclipse.helprcp.openMessage"
+            sequence="CTRL+SHIFT+M"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="org.eclipse.ui.file.exit"
+            sequence="CTRL+SHIFT+Q"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="Final help RCP Application"
+            application="org.eclipse.helprcp.application">
+         <property
+               name="aboutText"
+               value="RCP Mail template created by PDE">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/sample2.gif">
+         </property>
+         <property
+               name="aboutImage"
+               value="product_lg.gif">
+         </property>
+         <property
+               name="appName"
+               value="Final help RCP Application">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
